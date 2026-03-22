@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Антон Агафонов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c1: rgba(0,0,0,0.85);
+    --c2: rgba(0,0,0,0.6);
+    --c3: rgba(0,0,0,0.4);
+    --c4: rgba(0,0,0,0.18);
+    --c5: rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #fff;
+    color: var(--c1);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--c1);
+    text-decoration: none;
+    border-bottom: 1px solid var(--c4);
+    transition: border-color 0.15s;
+  }
+  a:hover { border-bottom-color: var(--c1); }
+  a:active { opacity: 0.7; }
+
+  .page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 52px 24px 88px;
+  }
+
+  /* HEADER */
+  header {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .header-photo {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--c5);
+    border: 0.5px solid var(--c4);
+  }
+
+  .header-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--c1);
+    line-height: 1.2;
+    margin-bottom: 5px;
+    letter-spacing: 0;
+  }
+
+  .tagline {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    color: var(--c3);
+    line-height: 1.8;
+  }
+
+  .tagline a { color: var(--c3); border-bottom: 1px solid var(--c4); }
+  .tagline a:hover { color: var(--c1); border-bottom-color: var(--c1); }
+
+  /* NAV */
+  nav {
+    margin-bottom: 52px;
+    border-top: 1px solid var(--c4);
+    border-bottom: 1px solid var(--c4);
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    color: var(--c3);
+    border: none;
+    letter-spacing: 0.02em;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--c1); }
+
+  section { margin-bottom: 60px; }
+
+  .section-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c3);
+    margin-bottom: 28px;
+  }
+
+  .item {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid var(--c4);
+  }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .item-meta {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    color: var(--c3);
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+
+  .item-title {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .item-title a { border-bottom: 1px solid var(--c4); }
+  .item-title a:hover { border-bottom-color: var(--c1); }
+
+  .item-desc {
+    font-size: 15.5px;
+    color: var(--c2);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .item-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .item-links a {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    color: var(--c3);
+    letter-spacing: 0.03em;
+  }
+  .item-links a:hover { color: var(--c1); }
+
+  .film-title {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .film-award {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    color: var(--c3);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .job {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    gap: 0 20px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 0.5px solid var(--c4);
+  }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-left {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    color: var(--c3);
+    line-height: 1.7;
+    padding-top: 2px;
+  }
+
+  .job-role {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--c2);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .job-desc { font-size: 15.5px; color: var(--c2); line-height: 1.6; }
+
+  .about-text { font-size: 17px; color: var(--c2); line-height: 1.65; }
+  .about-text p { margin-bottom: 16px; }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .contacts { font-family: 'Instrument Sans', sans-serif; font-size: 13px; color: var(--c3); line-height: 2.1; }
+  .contacts a { color: var(--c2); border-bottom: 1px solid var(--c4); }
+  .contacts a:hover { color: var(--c1); border-bottom-color: var(--c1); }
+
+  @media (max-width: 480px) {
+    .page { padding: 32px 16px 64px; }
+    .job { grid-template-columns: 1fr; gap: 2px; }
+    .job-left { font-size: 11px; }
+    .header-photo { width: 48px; height: 48px; }
+    .name { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="name">Антон Агафонов</div>
+      <div class="tagline">
+        <span style="display:block">Редактор, автор, режиссёр документального кино</span>
+        <span style="display:block"><a href="/cdn-cgi/l/email-protection#fc9dd28ad29d9b9d9a9392bc9b919d9590d29f9391"><span class="__cf_email__" data-cfemail="fb9ad58dd59a9c9a9d9495bb9c969a9297d5989496">[email&#160;protected]</span></a> · <a href="https://t.me/unzha" target="_blank">@unzha</a></span>
+      </div>
+    </div>
+    <div class="header-photo">
+      <img src="photo.jpg" alt="Антон Агафонов">
+    </div>
+  </header>
+
+  <nav>
+    <a href="#texts">Тексты</a>
+    <a href="#films">Кино</a>
+    <a href="#work">Опыт</a>
+    <a href="#about">О себе</a>
+  </nav>
+
+  <section id="texts">
+    <div class="section-label">Тексты</div>
+
+    <div class="item">
+      <div class="item-meta">Т—Ж · лонгрид · 2025</div>
+      <div class="item-title"><a href="https://t-j.ru/reality-kurs-dobra-zhizn-kak-chudo-17/" target="_blank">Не просто лекции у доски: как «Курс добра» помогает врачам учиться</a></div>
+      <p class="item-desc">Фонд «Жизнь как чудо» обучает педиатров и неонатологов из регионов распознавать редкие заболевания печени у детей. Брал интервью с врачами-участниками программы — о том, как новые знания уже помогли поставить правильный диагноз.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Хайтек · лонгрид · 2025</div>
+      <div class="item-title"><a href="https://hightech.fm/2025/02/06/life-as-miracle" target="_blank">Как обучение врачей новым технологиям помогает спасать детей</a></div>
+      <p class="item-desc">16 педиатров из разных городов прошли курс по врождённым и наследственным заболеваниям печени у новорождённых. Рассказал об образовательной программе фонда и о том, как ранняя диагностика меняет исходы для детей.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Спортс.ру · лонгрид · 2024</div>
+      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3288913.html" target="_blank">Бег со смыслом: как финишировать на шести главных марафонах мира и помочь детям</a></div>
+      <p class="item-desc">Игорь Лисник — один из 55 россиян, финишировавших на всех шести крупнейших марафонах мира: Нью-Йорке, Бостоне, Чикаго, Лондоне, Берлине и Токио. Восемь лет параллельно собирает деньги для детей с тяжёлыми заболеваниями печени.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Спортс.ру · гайд · 2024</div>
+      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3333588.html" target="_blank">Гайд для новичков: как заняться сёрфингом</a></div>
+      <p class="item-desc">На основе интервью с инструкторами и опытными сёрферами: какое снаряжение выбрать, где учиться, как выглядит первое занятие и каких ошибок чаще всего не избежать в начале.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Дизайн-агентство «бета» · кейс · 2024</div>
+      <div class="item-title"><a href="https://dsgners.ru/ux/6031-ranimyie-i-yarkie-lyubyat-glazami-kak-myi-provodili-glubinnyie-intervyu-dlya-kliniki" target="_blank">Ранимые и яркие любят глазами: как мы проводили глубинные интервью для клиники</a></div>
+      <p class="item-desc">Перед редизайном сайта частной клиники агентство провело глубинные интервью с пациентами. Записал историю исследования: как разговоры с двенадцатью людьми дали концепцию, которую никакой бриф не подсказал бы.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/533" target="_blank">Как звучит твой дизайн?</a></div>
+      <p class="item-desc">Дизайнер «беты» пишет музыку — и рассказывает, чем трогательная песня похожа на хороший интерфейс.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/524" target="_blank">Ступоры в работе над концепциями</a></div>
+      <p class="item-desc">Арт-директор «беты» проходит по самым частым ступорам в работе над концепцией — и объясняет, как из них выйти.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/573" target="_blank">Секс в дизайне</a></div>
+      <p class="item-desc">Сайты, которые вызывают не только эмоциональный, но и физический отклик. Про ощущения в дизайне — не про теорию.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/562" target="_blank">Чтобы стать харизматичным дизайнером, надо всего лишь три раза в день…</a></div>
+      <p class="item-desc">Продюсер «беты» — о том, как избавился от скромности, что такое харизматичный брендинг и почему сначала нужно разобраться в себе.</p>
+    </div>
+
+  </section>
+
+  <section id="films">
+    <div class="section-label">Кино</div>
+
+    <div class="item">
+      <div class="item-meta">режиссёр · сценарист · монтажёр · 2024</div>
+      <div class="film-title">«Аня, смотри»</div>
+      <div class="film-award">«Послание к человеку», 2024 — программа «Российское молодое»</div>
+      <p class="item-desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
+      <div class="item-links">
+        <a href="https://youtu.be/MVQt67zvufE" target="_blank">Смотреть</a>
+        <a href="https://youtu.be/Pd8HpRAzYsM" target="_blank">Трейлер</a>
+        <a href="https://docs.google.com/document/d/1KmvV6WgVJ5uv7OHG2t2BLhkT2MoPtaktrmQ2IvqYGZU/edit" target="_blank">Сценарий</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-meta">режиссёр · сценарист · монтажёр · 2023</div>
+      <div class="film-title">«In vivo»</div>
+      <div class="film-award">SiberiaDOC, 2024 — особое упоминание жюри</div>
+      <p class="item-desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный, почти бессловесный фильм о природе наблюдения.</p>
+      <div class="item-links">
+        <a href="https://piligrim.fund/film/vivo" target="_blank">Смотреть</a>
+        <a href="https://youtu.be/91BsARfF1VM" target="_blank">Трейлер</a>
+        <a href="https://docs.google.com/document/d/147MUSS2VdKXr9tzTh7XVnGZwDZh3ZNJsCmd2EeO3rVk/edit" target="_blank">Сценарий</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="work">
+    <div class="section-label">Опыт</div>
+
+    <div class="job">
+      <div class="job-left">БФ «Жизнь как чудо»<br>сент. 2024 — сейчас</div>
+      <div>
+        <div class="job-role">Редактор сайта</div>
+        <div class="job-desc">Фандрайзинговые тексты, лонгриды для Т—Ж, Хайтек, Спортс.ру, отчёты. Аналитика поведения пользователей в Яндекс.Метрике, UX-гипотезы.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">Дизайн-агентство «бета»<br>июнь – сент. 2024</div>
+      <div>
+        <div class="job-role">Копирайтер Telegram-канала</div>
+        <div class="job-desc">Интервью с дизайнерами, посты, кейсы, контент-план.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">Спортс.ру<br>2024 – 2025</div>
+      <div>
+        <div class="job-role">Автор статей</div>
+        <div class="job-desc">Лонгриды, гайды, подборки для раздела «Здоровье».</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="about">
+    <div class="section-label">О себе</div>
+    <div class="about-text">
+      <p>Закончил СПбГИКиТ по режиссуре документального кино. Снял два фестивальных фильма.</p>
+      <p>Последние два года работаю с текстом: редактор, автор, копирайтер. Умею брать интервью, адаптировать сложное для широкой аудитории, следить за аналитикой.</p>
+      <p>Ищу удалённую работу. Интересны медиа, культурные, образовательные, инклюзивные проекты.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Контакты</div>
+    <div class="contacts">
+      <a href="/cdn-cgi/l/email-protection#4a2b643c642b2d2b2c25240a2d272b232664292527"><span class="__cf_email__" data-cfemail="b0d19ec69ed1d7d1d6d
