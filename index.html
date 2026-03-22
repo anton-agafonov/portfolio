@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Антон Агафонов</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -53,8 +52,8 @@
   }
 
   .header-photo {
-    width: 85px;
-    height: 85px;
+    width: 56px;
+    height: 56px;
     flex-shrink: 0;
     overflow: hidden;
     background: var(--c5);
@@ -110,7 +109,7 @@
   }
   nav a:hover { color: var(--c1); }
 
-  section { margin-bottom: 60px; }
+  section { margin-bottom: 88px; }
 
   .section-label {
     font-family: 'Instrument Sans', sans-serif;
@@ -138,14 +137,25 @@
   }
 
   .item-title {
+    font-family: 'Newsreader', Georgia, serif;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
+    font-style: normal;
     line-height: 1.3;
-    margin-bottom: 10px;
+    color: var(--c1);
+    margin-bottom: 8px;
   }
 
-  .item-title a { border-bottom: 1px solid var(--c4); }
+  .item-title a { color: var(--c1); border-bottom: 1px solid var(--c4); }
   .item-title a:hover { border-bottom-color: var(--c1); }
+
+  .item-sub {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    color: var(--c3);
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
 
   .item-desc {
     font-size: 15.5px;
@@ -160,52 +170,23 @@
     font-size: 11px;
     color: var(--c3);
     letter-spacing: 0.03em;
+    border-bottom: none;
   }
   .item-links a:hover { color: var(--c1); }
 
-  .film-title {
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-
-  .film-award {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 11px;
-    color: var(--c3);
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  .job {
+  .item-grid {
     display: grid;
     grid-template-columns: 148px 1fr;
     gap: 0 20px;
-    margin-bottom: 28px;
-    padding-bottom: 28px;
-    border-bottom: 0.5px solid var(--c4);
   }
-  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-  .job-left {
+  .item-grid-left {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 12px;
     color: var(--c3);
     line-height: 1.7;
-    padding-top: 2px;
+    padding-top: 3px;
   }
-
-  .job-role {
-    font-size: 17px;
-    font-style: italic;
-    color: var(--c2);
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-
-  .job-desc { font-size: 15.5px; color: var(--c2); line-height: 1.6; }
 
   .about-text { font-size: 17px; color: var(--c2); line-height: 1.65; }
   .about-text p { margin-bottom: 16px; }
@@ -217,8 +198,8 @@
 
   @media (max-width: 480px) {
     .page { padding: 32px 16px 64px; }
-    .job { grid-template-columns: 1fr; gap: 2px; }
-    .job-left { font-size: 11px; }
+    .item-grid { grid-template-columns: 1fr; gap: 2px; }
+    .item-grid-left { font-size: 11px; }
     .header-photo { width: 48px; height: 48px; }
     .name { font-size: 24px; }
   }
@@ -230,8 +211,9 @@
   <header>
     <div>
       <div class="name">Антон Агафонов</div>
-      <div class="tagline">Редактор, автор, режиссёр документального кино<br>
-        <span style="display:block">a.v.agafon@gmail.com <span onclick="this.textContent='✓';setTimeout(()=>this.textContent='copy',1500);navigator.clipboard.writeText('a.v.agafon@gmail.com')" style="font-family:'Instrument Sans',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span> · <a href="https://t.me/unzha" target="_blank">@unzha</a></span>
+      <div class="tagline">
+        <span style="display:block">Редактор, автор, режиссёр документального кино</span>
+        <span style="display:block"><a href="/cdn-cgi/l/email-protection#fc9dd28ad29d9b9d9a9392bc9b919d9590d29f9391"><span class="__cf_email__" data-cfemail="fb9ad58dd59a9c9a9d9495bb9c969a9297d5989496">[email&#160;protected]</span></a> · <a href="https://t.me/unzha" target="_blank">@unzha</a></span>
       </div>
     </div>
     <div class="header-photo">
@@ -310,8 +292,8 @@
 
     <div class="item">
       <div class="item-meta">режиссёр · сценарист · монтажёр · 2024</div>
-      <div class="film-title">«Аня, смотри»</div>
-      <div class="film-award">«Послание к человеку», 2024 — программа «Российское молодое»</div>
+      <div class="item-title">«Аня, смотри»</div>
+      <div class="item-sub">«Послание к человеку», 2024 — программа «Российское молодое»</div>
       <p class="item-desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того, чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
       <div class="item-links">
         <a href="https://youtu.be/MVQt67zvufE" target="_blank">Смотреть</a>
@@ -322,8 +304,8 @@
 
     <div class="item">
       <div class="item-meta">режиссёр · сценарист · монтажёр · 2023</div>
-      <div class="film-title">«In vivo»</div>
-      <div class="film-award">SiberiaDOC, 2024 — особое упоминание жюри</div>
+      <div class="item-title">«In vivo»</div>
+      <div class="item-sub">SiberiaDOC, 2024 — особое упоминание жюри</div>
       <p class="item-desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный фильм почти без слов о природе наблюдения и насилия.</p>
       <div class="item-links">
         <a href="https://piligrim.fund/film/vivo" target="_blank">Смотреть</a>
@@ -337,27 +319,33 @@
   <section id="work">
     <div class="section-label">Опыт</div>
 
-    <div class="job">
-      <div class="job-left">БФ «Жизнь как чудо»<br>сент. 2024 — сейчас</div>
-      <div>
-        <div class="job-role">Редактор сайта</div>
-        <div class="job-desc">Фандрайзинговые тексты, новости, посты, отчёты, лонгриды для Т—Ж, Хайтек, Спортс.ру. Аналитика поведения пользователей в Яндекс.Метрике, UX-гипотезы.</div>
+    <div class="item">
+      <div class="item-grid">
+        <div class="item-grid-left">БФ «Жизнь как чудо»<br>сент. 2024 — сейчас</div>
+        <div>
+          <div class="item-title">Редактор сайта</div>
+          <p class="item-desc">Фандрайзинговые тексты, новости, посты, отчёты, лонгриды для Т—Ж, Хайтек, Спортс.ру. Аналитика поведения пользователей в Яндекс.Метрике, UX-гипотезы.</p>
+        </div>
       </div>
     </div>
 
-    <div class="job">
-      <div class="job-left">Дизайн-агентство «бета»<br>июнь – сент. 2024</div>
-      <div>
-        <div class="job-role">Копирайтер Telegram-канала</div>
-        <div class="job-desc">Интервью с дизайнерами, посты, кейсы, контент-план.</div>
+    <div class="item">
+      <div class="item-grid">
+        <div class="item-grid-left">Дизайн-агентство «бета»<br>июнь – сент. 2024</div>
+        <div>
+          <div class="item-title">Копирайтер Telegram-канала</div>
+          <p class="item-desc">Интервью с дизайнерами, посты, кейсы, контент-план.</p>
+        </div>
       </div>
     </div>
 
-    <div class="job">
-      <div class="job-left">Спортс.ру<br>2024 – 2025</div>
-      <div>
-        <div class="job-role">Автор статей</div>
-        <div class="job-desc">Лонгриды, гайды, подборки для раздела «Здоровье».</div>
+    <div class="item">
+      <div class="item-grid">
+        <div class="item-grid-left">Спортс.ру<br>2024 – 2025</div>
+        <div>
+          <div class="item-title">Автор статей</div>
+          <p class="item-desc">Лонгриды, гайды, подборки для раздела «Здоровье».</p>
+        </div>
       </div>
     </div>
 
@@ -372,12 +360,7 @@
     </div>
   </section>
 
-   <!-- CONTACTS -->
   <section>
     <div class="section-label">Контакты</div>
     <div class="contacts">
-      a.v.agafon@gmail.com <span onclick="this.textContent='✓';setTimeout(()=>this.textContent='copy',1500);navigator.clipboard.writeText('a.v.agafon@gmail.com')" style="font-family:'Instrument Sans',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span><br>
-      <a href="https://t.me/unzha" target="_blank">Telegram @unzha</a><br>
-      <a href="https://www.instagram.com/unzh.a/" target="_blank">Instagram @unzh.a</a>
-    </div>
-  </section>
+      <a href="/cdn-cgi/l/email-protection#4a2b643c642b2d2b2c25240a2d272b232664292527"><span class="__cf_email__" data-cfemail="b0d19ec69ed1d7d1d6d
