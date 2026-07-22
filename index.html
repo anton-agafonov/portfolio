@@ -88,6 +88,30 @@
   .tagline a { color: var(--c3); border-bottom: 1px solid var(--c4); }
   .tagline a:hover { color: var(--c1); border-bottom-color: var(--c1); }
 
+  /* LANGUAGE SWITCHER */
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .lang-switch {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--c3);
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+  }
+  .lang-switch span[data-lang].active {
+    color: var(--c1);
+  }
+  .lang-switch span[data-lang]:hover {
+    color: var(--c1);
+  }
+
   /* NAV */
   nav {
     margin-bottom: 52px;
@@ -210,140 +234,147 @@
 
   <header>
     <div>
-      <div class="name">Антон Агафонов</div>
-      <div class="tagline">Редактор, автор, режиссёр документального кино<br>
+      <div class="name" data-i18n="name">Антон Агафонов</div>
+      <div class="tagline" data-i18n-html="tagline">Редактор, автор, режиссёр документального кино<br>
         <span style="display:block">a.v.agafon@gmail.com <span onclick="this.textContent='✓';setTimeout(()=>this.textContent='copy',1500);navigator.clipboard.writeText('a.v.agafon@gmail.com')" style="font-family:'Instrument Sans',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span> · <a href="https://t.me/unzha" target="_blank">@unzha</a></span>
       </div>
     </div>
-    <div class="header-photo">
-      <img src="photo.jpg" alt="Антон Агафонов">
+    <div class="header-right">
+      <div class="lang-switch" id="langSwitch">
+        <span data-lang="ru" class="active">ru</span>
+        <span style="color:var(--c4)"> / </span>
+        <span data-lang="en">en</span>
+      </div>
+      <div class="header-photo">
+        <img src="photo.jpg" alt="Антон Агафонов" data-i18n-alt="photoAlt">
+      </div>
     </div>
   </header>
 
   <nav>
-    <a href="#films">Кино</a>
-    <a href="#texts">Тексты</a>
-    <a href="#work">Опыт</a>
-    <a href="#about">О себе</a>
+    <a href="#texts" data-i18n="navTexts">Тексты</a>
+    <a href="#films" data-i18n="navFilms">Кино</a>
+    <a href="#work" data-i18n="navExperience">Опыт</a>
+    <a href="#about" data-i18n="navAbout">О себе</a>
   </nav>
 
-  <section id="films">
-    <div class="section-label">Кино</div>
+  <section id="texts">
+    <div class="section-label" data-i18n="sectionTexts">Тексты</div>
 
     <div class="item">
-      <div class="item-meta">режиссёр · сценарист · монтажёр · 2024</div>
-      <div class="item-title">«Аня, смотри»</div>
-      <div class="item-sub">Международный кинофестиваль «Послание к человеку», 2024 — программа «Российское молодое»</div>
-      <p class="item-desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того, чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
-      <div class="item-links">
-        <a href="https://youtu.be/MVQt67zvufE" target="_blank">Смотреть</a>
-        <a href="https://youtu.be/Pd8HpRAzYsM" target="_blank">Трейлер</a>
-        <a href="https://docs.google.com/document/d/1KmvV6WgVJ5uv7OHG2t2BLhkT2MoPtaktrmQ2IvqYGZU/edit" target="_blank">Сценарий</a>
-      </div>
+      <div class="item-meta" data-i18n="text1Meta">Т—Ж · лонгрид · 2025</div>
+      <div class="item-title"><a href="https://t-j.ru/reality-kurs-dobra-zhizn-kak-chudo-17/" target="_blank" data-i18n="text1Title">Не просто лекции у доски: как «Курс добра» помогает врачам учиться</a></div>
+      <p class="item-desc" data-i18n="text1Desc">Фонд «Жизнь как чудо» обучает педиатров и неонатологов из регионов распознавать редкие заболевания печени у детей. Брал интервью с врачами-участниками программы — о том, как новые знания уже помогли поставить правильный диагноз.</p>
     </div>
 
     <div class="item">
-      <div class="item-meta">режиссёр · сценарист · монтажёр · 2023</div>
-      <div class="item-title">«In vivo»</div>
-      <div class="item-sub">Международный кинофестиваль SiberiaDOC, 2024 — особое упоминание жюри</div>
-      <p class="item-desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный фильм почти без слов о природе наблюдения и насилия.</p>
-      <div class="item-links">
-        <a href="https://piligrim.fund/film/vivo" target="_blank">Смотреть</a>
-        <a href="https://youtu.be/91BsARfF1VM" target="_blank">Трейлер</a>
-        <a href="https://docs.google.com/document/d/147MUSS2VdKXr9tzTh7XVnGZwDZh3ZNJsCmd2EeO3rVk/edit" target="_blank">Сценарий</a>
-      </div>
+      <div class="item-meta" data-i18n="text2Meta">Хайтек · лонгрид · 2025</div>
+      <div class="item-title"><a href="https://hightech.fm/2025/02/06/life-as-miracle" target="_blank" data-i18n="text2Title">Как обучение врачей новым технологиям помогает спасать детей</a></div>
+      <p class="item-desc" data-i18n="text2Desc">16 педиатров из разных городов прошли курс по врождённым и наследственным заболеваниям печени у новорождённых. Рассказал об образовательной программе фонда и о том, как ранняя диагностика меняет судьбы детей.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text3Meta">Спортс.ру · лонгрид · 2024</div>
+      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3288913.html" target="_blank" data-i18n="text3Title">Бег со смыслом: как финишировать на шести главных марафонах мира и помочь детям</a></div>
+      <p class="item-desc" data-i18n="text3Desc">Игорь Лисник — один из 55 россиян, финишировавших на всех шести крупнейших марафонах мира: Нью-Йорке, Бостоне, Чикаго, Лондоне, Берлине и Токио. Восемь лет параллельно собирает деньги для детей с тяжёлыми заболеваниями печени.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text4Meta">Спортс.ру · гайд · 2024</div>
+      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3333588.html" target="_blank" data-i18n="text4Title">Гайд для новичков: как заняться сёрфингом</a></div>
+      <p class="item-desc" data-i18n="text4Desc">На основе интервью с инструкторами и опытными сёрферами: какое снаряжение выбрать, где учиться, как выглядит первое занятие и каких ошибок чаще всего не избежать в начале.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text5Meta">Дизайн-агентство «бета» · кейс · 2024</div>
+      <div class="item-title"><a href="https://dsgners.ru/ux/6031-ranimyie-i-yarkie-lyubyat-glazami-kak-myi-provodili-glubinnyie-intervyu-dlya-kliniki" target="_blank" data-i18n="text5Title">Ранимые и яркие любят глазами: как мы проводили глубинные интервью для клиники</a></div>
+      <p class="item-desc" data-i18n="text5Desc">Перед редизайном сайта частной клиники агентство провело глубинные интервью с пациентами. Записал историю исследования: как разговоры с двенадцатью людьми дали концепцию, которую никакой бриф не подсказал бы.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text6Meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/533" target="_blank" data-i18n="text6Title">Как звучит твой дизайн?</a></div>
+      <p class="item-desc" data-i18n="text6Desc">Дизайнер «беты» пишет музыку — и рассказывает, чем трогательная песня похожа на хороший интерфейс.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text7Meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/524" target="_blank" data-i18n="text7Title">Ступоры в работе над концепциями</a></div>
+      <p class="item-desc" data-i18n="text7Desc">Арт-директор «беты» проходит по самым частым ступорам в работе над концепцией — и объясняет, как из них выйти.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text8Meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/573" target="_blank" data-i18n="text8Title">Секс в дизайне</a></div>
+      <p class="item-desc" data-i18n="text8Desc">Сайты, которые вызывают не только эмоциональный, но и физический отклик. Про ощущения в дизайне — не про теорию.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="text9Meta">Дизайн-агентство «бета» · пост · 2024</div>
+      <div class="item-title"><a href="https://t.me/betamoscow/562" target="_blank" data-i18n="text9Title">Чтобы стать харизматичным дизайнером, надо всего лишь три раза в день…</a></div>
+      <p class="item-desc" data-i18n="text9Desc">Продюсер «беты» — о том, как избавился от скромности, что такое харизматичный брендинг и почему сначала нужно разобраться в себе.</p>
     </div>
 
   </section>
 
-  <section id="texts">
-    <div class="section-label">Тексты</div>
+  <section id="films">
+    <div class="section-label" data-i18n="sectionFilms">Кино</div>
 
     <div class="item">
-      <div class="item-meta">Т—Ж · лонгрид · 2025</div>
-      <div class="item-title"><a href="https://t-j.ru/reality-kurs-dobra-zhizn-kak-chudo-17/" target="_blank">Не просто лекции у доски: как «Курс добра» помогает врачам учиться</a></div>
-      <p class="item-desc">Фонд «Жизнь как чудо» обучает педиатров и неонатологов из регионов распознавать редкие заболевания печени у детей. Брал интервью с врачами-участниками программы — о том, как новые знания уже помогли поставить правильный диагноз.</p>
+      <div class="item-meta" data-i18n="film1Meta">режиссёр · сценарист · монтажёр · 2024</div>
+      <div class="item-title" data-i18n="film1Title">«Аня, смотри»</div>
+      <div class="item-sub" data-i18n="film1Sub">Международный кинофестиваль «Послание к человеку», 2024 — программа «Российское молодое»</div>
+      <p class="item-desc" data-i18n="film1Desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того, чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
+      <div class="item-links">
+        <a href="https://youtu.be/MVQt67zvufE" target="_blank" data-i18n="linkWatch">Смотреть</a>
+        <a href="https://youtu.be/Pd8HpRAzYsM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
+        <a href="https://docs.google.com/document/d/1KmvV6WgVJ5uv7OHG2t2BLhkT2MoPtaktrmQ2IvqYGZU/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
+      </div>
     </div>
 
     <div class="item">
-      <div class="item-meta">Хайтек · лонгрид · 2025</div>
-      <div class="item-title"><a href="https://hightech.fm/2025/02/06/life-as-miracle" target="_blank">Как обучение врачей новым технологиям помогает спасать детей</a></div>
-      <p class="item-desc">16 педиатров из разных городов прошли курс по врождённым и наследственным заболеваниям печени у новорождённых. Рассказал об образовательной программе фонда и о том, как ранняя диагностика меняет судьбы детей.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Спортс.ру · лонгрид · 2024</div>
-      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3288913.html" target="_blank">Бег со смыслом: как финишировать на шести главных марафонах мира и помочь детям</a></div>
-      <p class="item-desc">Игорь Лисник — один из 55 россиян, финишировавших на всех шести крупнейших марафонах мира: Нью-Йорке, Бостоне, Чикаго, Лондоне, Берлине и Токио. Восемь лет параллельно собирает деньги для детей с тяжёлыми заболеваниями печени.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Спортс.ру · гайд · 2024</div>
-      <div class="item-title"><a href="https://www.sports.ru/health/blogs/3333588.html" target="_blank">Гайд для новичков: как заняться сёрфингом</a></div>
-      <p class="item-desc">На основе интервью с инструкторами и опытными сёрферами: какое снаряжение выбрать, где учиться, как выглядит первое занятие и каких ошибок чаще всего не избежать в начале.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Дизайн-агентство «бета» · кейс · 2024</div>
-      <div class="item-title"><a href="https://dsgners.ru/ux/6031-ranimyie-i-yarkie-lyubyat-glazami-kak-myi-provodili-glubinnyie-intervyu-dlya-kliniki" target="_blank">Ранимые и яркие любят глазами: как мы проводили глубинные интервью для клиники</a></div>
-      <p class="item-desc">Перед редизайном сайта частной клиники агентство провело глубинные интервью с пациентами. Записал историю исследования: как разговоры с двенадцатью людьми дали концепцию, которую никакой бриф не подсказал бы.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
-      <div class="item-title"><a href="https://t.me/betamoscow/533" target="_blank">Как звучит твой дизайн?</a></div>
-      <p class="item-desc">Дизайнер «беты» пишет музыку — и рассказывает, чем трогательная песня похожа на хороший интерфейс.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
-      <div class="item-title"><a href="https://t.me/betamoscow/524" target="_blank">Ступоры в работе над концепциями</a></div>
-      <p class="item-desc">Арт-директор «беты» проходит по самым частым ступорам в работе над концепцией — и объясняет, как из них выйти.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
-      <div class="item-title"><a href="https://t.me/betamoscow/573" target="_blank">Секс в дизайне</a></div>
-      <p class="item-desc">Сайты, которые вызывают не только эмоциональный, но и физический отклик. Про ощущения в дизайне — не про теорию.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta">Дизайн-агентство «бета» · пост · 2024</div>
-      <div class="item-title"><a href="https://t.me/betamoscow/562" target="_blank">Чтобы стать харизматичным дизайнером, надо всего лишь три раза в день…</a></div>
-      <p class="item-desc">Продюсер «беты» — о том, как избавился от скромности, что такое харизматичный брендинг и почему сначала нужно разобраться в себе.</p>
+      <div class="item-meta" data-i18n="film2Meta">режиссёр · сценарист · монтажёр · 2023</div>
+      <div class="item-title" data-i18n="film2Title">«In vivo»</div>
+      <div class="item-sub" data-i18n="film2Sub">Международный кинофестиваль SiberiaDOC, 2024 — особое упоминание жюри</div>
+      <p class="item-desc" data-i18n="film2Desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный фильм почти без слов о природе наблюдения и насилия.</p>
+      <div class="item-links">
+        <a href="https://piligrim.fund/film/vivo" target="_blank" data-i18n="linkWatch">Смотреть</a>
+        <a href="https://youtu.be/91BsARfF1VM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
+        <a href="https://docs.google.com/document/d/147MUSS2VdKXr9tzTh7XVnGZwDZh3ZNJsCmd2EeO3rVk/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
+      </div>
     </div>
 
   </section>
 
   <section id="work">
-    <div class="section-label">Опыт</div>
+    <div class="section-label" data-i18n="sectionExperience">Опыт</div>
 
     <div class="item">
       <div class="item-grid">
-        <div class="item-grid-left">БФ «Жизнь как чудо»<br>сент. 2024 — сейчас</div>
+        <div class="item-grid-left" data-i18n-html="work1Left">БФ «Жизнь как чудо»<br>сент. 2024 — сейчас</div>
         <div>
-          <div class="item-title">Редактор сайта</div>
-          <p class="item-desc">Фандрайзинговые тексты, новости, посты, отчёты, лонгриды для Т—Ж, Хайтек, Спортс.ру. Аналитика поведения пользователей в Яндекс.Метрике, UX-гипотезы.</p>
+          <div class="item-title" data-i18n="work1Title">Редактор сайта</div>
+          <p class="item-desc" data-i18n="work1Desc">Фандрайзинговые тексты, новости, посты, отчёты, лонгриды для Т—Ж, Хайтек, Спортс.ру. Аналитика поведения пользователей в Яндекс.Метрике, UX-гипотезы.</p>
         </div>
       </div>
     </div>
 
     <div class="item">
       <div class="item-grid">
-        <div class="item-grid-left">Дизайн-агентство «бета»<br>июнь – сент. 2024</div>
+        <div class="item-grid-left" data-i18n-html="work2Left">Дизайн-агентство «бета»<br>июнь – сент. 2024</div>
         <div>
-          <div class="item-title">Копирайтер Telegram-канала</div>
-          <p class="item-desc">Интервью с дизайнерами, посты, кейсы, контент-план.</p>
+          <div class="item-title" data-i18n="work2Title">Копирайтер Telegram-канала</div>
+          <p class="item-desc" data-i18n="work2Desc">Интервью с дизайнерами, посты, кейсы, контент-план.</p>
         </div>
       </div>
     </div>
 
     <div class="item">
       <div class="item-grid">
-        <div class="item-grid-left">Спортс.ру<br>2024 – 2025</div>
+        <div class="item-grid-left" data-i18n-html="work3Left">Спортс.ру<br>2024 – 2025</div>
         <div>
-          <div class="item-title">Автор статей</div>
-          <p class="item-desc">Лонгриды, гайды, подборки для раздела «Здоровье».</p>
+          <div class="item-title" data-i18n="work3Title">Автор статей</div>
+          <p class="item-desc" data-i18n="work3Desc">Лонгриды, гайды, подборки для раздела «Здоровье».</p>
         </div>
       </div>
     </div>
@@ -351,20 +382,166 @@
   </section>
 
   <section id="about">
-    <div class="section-label">О себе</div>
+    <div class="section-label" data-i18n="sectionAbout">О себе</div>
     <div class="about-text">
-      <p>Закончил СПбГИКиТ по режиссуре документального кино. Снял два фестивальных фильма.</p>
-      <p>Последние два года работаю с текстом: редактор, автор, копирайтер. Умею брать интервью, адаптировать сложное для широкой аудитории, следить за аналитикой.</p>
-      <p>Много работаю с текстовыми нейросетями. Есть опыт работы ai-тренером.</p>
-      <p>Ищу преимущественно удалённую работу. Интересны медиа, культурные, образовательные, инклюзивные проекты.</p>
+      <p data-i18n="aboutP1">Закончил СПбГИКиТ по режиссуре документального кино. Снял два фестивальных фильма.</p>
+      <p data-i18n="aboutP2">Последние два года работаю с текстом: редактор, автор, копирайтер. Умею брать интервью, адаптировать сложное для широкой аудитории, следить за аналитикой.</p>
+      <p data-i18n="aboutP3">Ищу удалённую работу. Интересны медиа, культурные, образовательные, инклюзивные проекты.</p>
     </div>
   </section>
 
  <section>
-    <div class="section-label">Контакты</div>
-    <div class="contacts">
+    <div class="section-label" data-i18n="sectionContacts">Контакты</div>
+    <div class="contacts" data-i18n-html="contactsBody">
       a.v.agafon@gmail.com <span onclick="this.textContent='✓';setTimeout(()=>this.textContent='copy',1500);navigator.clipboard.writeText('a.v.agafon@gmail.com')" style="font-family:'Instrument Sans',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span><br>
       <a href="https://t.me/unzha" target="_blank">Telegram @unzha</a><br>
       <a href="https://www.instagram.com/unzh.a/" target="_blank">Instagram @unzh.a</a>
     </div>
   </section>
+
+</div>
+
+<script>
+(function() {
+  // English translations
+  const enText = {
+    name: 'Anton Agafonov',
+    navTexts: 'Texts',
+    navFilms: 'Films',
+    navExperience: 'Experience',
+    navAbout: 'About',
+    sectionTexts: 'Texts',
+    sectionFilms: 'Films',
+    sectionExperience: 'Experience',
+    sectionAbout: 'About',
+    sectionContacts: 'Contacts',
+    text1Meta: 'T-J \u00b7 longread \u00b7 2025',
+    text1Title: "Not just lectures at a blackboard: how the 'Course of Kindness' helps doctors learn",
+    text1Desc: "The 'Life as a Miracle' Foundation trains pediatricians and neonatologists from the regions to recognize rare liver diseases in children. I interviewed participating doctors \u2014 about how the new knowledge has already helped them make the correct diagnosis.",
+    text2Meta: 'Hi-Tech \u00b7 longread \u00b7 2025',
+    text2Title: 'How training doctors in new technologies helps save children',
+    text2Desc: "16 pediatricians from different cities completed a course on congenital and inherited liver diseases in newborns. I wrote about the foundation's educational program and how early diagnosis changes children's lives.",
+    text3Meta: 'Sports.ru \u00b7 longread \u00b7 2024',
+    text3Title: 'Running with purpose: how to finish all six major world marathons and help children',
+    text3Desc: "Igor Lisnik is one of 55 Russians to have finished all six of the world's major marathons: New York, Boston, Chicago, London, Berlin, and Tokyo. For eight years, he has also been raising money for children with severe liver diseases.",
+    text4Meta: 'Sports.ru \u00b7 guide \u00b7 2024',
+    text4Title: "Beginner's guide: how to get into surfing",
+    text4Desc: 'Based on interviews with instructors and experienced surfers: what equipment to choose, where to learn, what the first session looks like, and which mistakes are almost inevitable at the start.',
+    text5Meta: "Design agency 'beta' \u00b7 case study \u00b7 2024",
+    text5Title: "Sensitive and vibrant people perceive with their eyes: how we conducted in-depth interviews for a clinic",
+    text5Desc: "Before redesigning a private clinic's website, the agency conducted in-depth interviews with patients. I documented the research story: how conversations with twelve people yielded a concept that no brief could have suggested.",
+    text6Meta: "Design agency 'beta' \u00b7 post \u00b7 2024",
+    text6Title: 'What does your design sound like?',
+    text6Desc: "A 'beta' designer writes music \u2014 and explains what a touching song has in common with a good interface.",
+    text7Meta: "Design agency 'beta' \u00b7 post \u00b7 2024",
+    text7Title: 'Creative blocks in concept work',
+    text7Desc: "The 'beta' art director walks through the most common creative blocks in concept work \u2014 and explains how to get out of them.",
+    text8Meta: "Design agency 'beta' \u00b7 post \u00b7 2024",
+    text8Title: 'Sex in design',
+    text8Desc: 'Websites that elicit not just an emotional but a physical response. About sensations in design \u2014 not theory.',
+    text9Meta: "Design agency 'beta' \u00b7 post \u00b7 2024",
+    text9Title: 'To become a charismatic designer, you only need to do this three times a day\u2026',
+    text9Desc: "A 'beta' producer \u2014 on overcoming shyness, what charismatic branding is, and why you first need to understand yourself.",
+    film1Meta: 'director \u00b7 screenwriter \u00b7 editor \u00b7 2024',
+    film1Title: '\u201cAnya, Look\u201d',
+    film1Sub: "Message to Man International Film Festival, 2024 \u2014 'Russian Young' program",
+    film1Desc: "A visually impaired girl becomes the cinematographer of a documentary about her own way of seeing. Instead of filming about her \u2014 they filmed with her. The film explores what it means to 'see.'",
+    linkWatch: 'Watch',
+    linkTrailer: 'Trailer',
+    linkScreenplay: 'Screenplay',
+    film2Meta: 'director \u00b7 screenwriter \u00b7 editor \u00b7 2023',
+    film2Title: '\u201cIn vivo\u201d',
+    film2Sub: 'SiberiaDOC International Film Festival, 2024 \u2014 special jury mention',
+    film2Desc: 'A scientist at the Pavlov Institute searches for beauty inside a living creature. A slow, almost wordless film about the nature of observation and violence.',
+    work1Title: 'Website Editor',
+    work1Desc: 'Fundraising copy, news, social media posts, reports, longreads for T-J, Hi-Tech, Sports.ru. User behavior analytics in Yandex.Metrica, UX hypotheses.',
+    work2Title: 'Telegram Channel Copywriter',
+    work2Desc: 'Designer interviews, posts, case studies, content plan.',
+    work3Title: 'Staff Writer',
+    work3Desc: "Longreads, guides, and roundups for the Health section.",
+    aboutP1: 'Graduated from St. Petersburg State Institute of Film and Television with a degree in documentary filmmaking. Made two festival-selected films.',
+    aboutP2: "For the past two years I've been working with text: editor, writer, copywriter. I can conduct interviews, adapt complex material for a broad audience, and work with analytics.",
+    aboutP3: 'Looking for remote work. Interested in media, cultural, educational, and inclusive projects.',
+    photoAlt: 'Anton Agafonov'
+  };
+
+  const enHtml = {
+    tagline: 'Editor, writer, documentary filmmaker<br><span style="display:block">a.v.agafon@gmail.com <span onclick="this.textContent=\'\u2713\';setTimeout(()=>this.textContent=\'copy\',1500);navigator.clipboard.writeText(\'a.v.agafon@gmail.com\')" style="font-family:\'Instrument Sans\',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span> \u00b7 <a href="https://t.me/unzha" target="_blank">@unzha</a></span>',
+    work1Left: "Life as a Miracle Foundation<br>Sept. 2024 \u2014 present",
+    work2Left: "Design agency 'beta'<br>June \u2013 Sept. 2024",
+    work3Left: 'Sports.ru<br>2024 \u2013 2025',
+    contactsBody: 'a.v.agafon@gmail.com <span onclick="this.textContent=\'\u2713\';setTimeout(()=>this.textContent=\'copy\',1500);navigator.clipboard.writeText(\'a.v.agafon@gmail.com\')" style="font-family:\'Instrument Sans\',sans-serif;font-size:10px;color:rgba(0,0,0,0.35);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:1px">copy</span><br><a href="https://t.me/unzha" target="_blank">Telegram @unzha</a><br><a href="https://www.instagram.com/unzh.a/" target="_blank">Instagram @unzh.a</a>'
+  };
+
+  // Store original Russian text on first switch
+  const origTexts = {};
+  const origHtmls = {};
+  let currentLang = 'ru';
+
+  function setLang(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+
+    if (lang === 'en') {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (!origTexts[key]) origTexts[key] = el.textContent;
+        if (enText[key] !== undefined) el.textContent = enText[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (!origHtmls[key]) origHtmls[key] = el.innerHTML;
+        if (enHtml[key] !== undefined) el.innerHTML = enHtml[key];
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-alt');
+        if (enText[key] !== undefined) el.alt = enText[key];
+      });
+      document.title = 'Anton Agafonov';
+    } else {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (origTexts[key] !== undefined) el.textContent = origTexts[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (origHtmls[key] !== undefined) el.innerHTML = origHtmls[key];
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-alt');
+        if (origTexts[key] !== undefined) el.alt = origTexts[key];
+      });
+      document.title = '\u0410\u043d\u0442\u043e\u043d \u0410\u0433\u0430\u0444\u043e\u043d\u043e\u0432';
+    }
+
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+
+    // Update switcher visual
+    document.querySelectorAll('#langSwitch span[data-lang]').forEach(function(s) {
+      if (s.getAttribute('data-lang') === lang) {
+        s.classList.add('active');
+      } else {
+        s.classList.remove('active');
+      }
+    });
+  }
+
+  // Switcher click handler
+  document.getElementById('langSwitch').addEventListener('click', function(e) {
+    var target = e.target.closest('[data-lang]');
+    if (target) {
+      setLang(target.getAttribute('data-lang'));
+    }
+  });
+
+  // Restore saved language
+  var savedLang = localStorage.getItem('lang');
+  if (savedLang === 'en') {
+    setLang('en');
+  }
+})();
+</script>
+
+</body>
+</html> 
