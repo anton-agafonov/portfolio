@@ -90,13 +90,14 @@
 
   /* LANGUAGE SWITCHER */
   .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
+    position: relative;
   }
 
   .lang-switch {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 6px;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.03em;
@@ -240,7 +241,7 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="lang-switch" id="langSwitch">
+      <div class="lang-switch" id="langSwitch">        
         <span data-lang="ru" class="active">ru</span>
         <span style="color:var(--c4)"> / </span>
         <span data-lang="en">en</span>
@@ -252,11 +253,40 @@
   </header>
 
   <nav>
-    <a href="#texts" data-i18n="navTexts">Тексты</a>
     <a href="#films" data-i18n="navFilms">Кино</a>
+    <a href="#texts" data-i18n="navTexts">Тексты</a>
     <a href="#work" data-i18n="navExperience">Опыт</a>
     <a href="#about" data-i18n="navAbout">О себе</a>
   </nav>
+
+  <section id="films">
+    <div class="section-label" data-i18n="sectionFilms">Кино</div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="film1Meta">режиссёр · сценарист · монтажёр · 2024</div>
+      <div class="item-title" data-i18n="film1Title">«Аня, смотри»</div>
+      <div class="item-sub" data-i18n="film1Sub">Международный кинофестиваль «Послание к человеку», 2024 — программа «Российское молодое»</div>
+      <p class="item-desc" data-i18n="film1Desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того, чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
+      <div class="item-links">
+        <a href="https://youtu.be/MVQt67zvufE" target="_blank" data-i18n="linkWatch">Смотреть</a>
+        <a href="https://youtu.be/Pd8HpRAzYsM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
+        <a href="https://docs.google.com/document/d/1KmvV6WgVJ5uv7OHG2t2BLhkT2MoPtaktrmQ2IvqYGZU/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-meta" data-i18n="film2Meta">режиссёр · сценарист · монтажёр · 2023</div>
+      <div class="item-title" data-i18n="film2Title">«In vivo»</div>
+      <div class="item-sub" data-i18n="film2Sub">Международный кинофестиваль SiberiaDOC, 2024 — особое упоминание жюри</div>
+      <p class="item-desc" data-i18n="film2Desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный фильм почти без слов о природе наблюдения и насилия.</p>
+      <div class="item-links">
+        <a href="https://piligrim.fund/film/vivo" target="_blank" data-i18n="linkWatch">Смотреть</a>
+        <a href="https://youtu.be/91BsARfF1VM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
+        <a href="https://docs.google.com/document/d/147MUSS2VdKXr9tzTh7XVnGZwDZh3ZNJsCmd2EeO3rVk/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
+      </div>
+    </div>
+
+  </section>
 
   <section id="texts">
     <div class="section-label" data-i18n="sectionTexts">Тексты</div>
@@ -313,35 +343,6 @@
       <div class="item-meta" data-i18n="text9Meta">Дизайн-агентство «бета» · пост · 2024</div>
       <div class="item-title"><a href="https://t.me/betamoscow/562" target="_blank" data-i18n="text9Title">Чтобы стать харизматичным дизайнером, надо всего лишь три раза в день…</a></div>
       <p class="item-desc" data-i18n="text9Desc">Продюсер «беты» — о том, как избавился от скромности, что такое харизматичный брендинг и почему сначала нужно разобраться в себе.</p>
-    </div>
-
-  </section>
-
-  <section id="films">
-    <div class="section-label" data-i18n="sectionFilms">Кино</div>
-
-    <div class="item">
-      <div class="item-meta" data-i18n="film1Meta">режиссёр · сценарист · монтажёр · 2024</div>
-      <div class="item-title" data-i18n="film1Title">«Аня, смотри»</div>
-      <div class="item-sub" data-i18n="film1Sub">Международный кинофестиваль «Послание к человеку», 2024 — программа «Российское молодое»</div>
-      <p class="item-desc" data-i18n="film1Desc">Слабовидящая девушка становится оператором документального фильма о своём взгляде. Вместо того, чтобы снимать о ней — снимали вместе с ней. Фильм исследует, что значит «видеть».</p>
-      <div class="item-links">
-        <a href="https://youtu.be/MVQt67zvufE" target="_blank" data-i18n="linkWatch">Смотреть</a>
-        <a href="https://youtu.be/Pd8HpRAzYsM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
-        <a href="https://docs.google.com/document/d/1KmvV6WgVJ5uv7OHG2t2BLhkT2MoPtaktrmQ2IvqYGZU/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="item-meta" data-i18n="film2Meta">режиссёр · сценарист · монтажёр · 2023</div>
-      <div class="item-title" data-i18n="film2Title">«In vivo»</div>
-      <div class="item-sub" data-i18n="film2Sub">Международный кинофестиваль SiberiaDOC, 2024 — особое упоминание жюри</div>
-      <p class="item-desc" data-i18n="film2Desc">Учёный в институте Павлова ищет красоту внутри живого существа. Медленный фильм почти без слов о природе наблюдения и насилия.</p>
-      <div class="item-links">
-        <a href="https://piligrim.fund/film/vivo" target="_blank" data-i18n="linkWatch">Смотреть</a>
-        <a href="https://youtu.be/91BsARfF1VM" target="_blank" data-i18n="linkTrailer">Трейлер</a>
-        <a href="https://docs.google.com/document/d/147MUSS2VdKXr9tzTh7XVnGZwDZh3ZNJsCmd2EeO3rVk/edit" target="_blank" data-i18n="linkScreenplay">Сценарий</a>
-      </div>
     </div>
 
   </section>
@@ -457,7 +458,7 @@
     work1Desc: 'Fundraising copy, news, social media posts, reports, longreads for T-J, Hi-Tech, Sports.ru. User behavior analytics in Yandex.Metrica, UX hypotheses.',
     work2Title: 'Telegram Channel Copywriter',
     work2Desc: 'Designer interviews, posts, case studies, content plan.',
-    work3Title: 'Staff Writer',
+    work3Title: 'Writer',
     work3Desc: "Longreads, guides, and roundups for the Health section.",
     aboutP1: 'Graduated from St. Petersburg State Institute of Film and Television with a degree in documentary filmmaking. Made two festival-selected films.',
     aboutP2: "For the past two years I've been working with text: editor, writer, copywriter. I can conduct interviews, adapt complex material for a broad audience, and work with analytics.",
@@ -516,6 +517,7 @@
 
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
+    updateUrl(lang);
 
     // Update switcher visual
     document.querySelectorAll('#langSwitch span[data-lang]').forEach(function(s) {
@@ -535,8 +537,23 @@
     }
   });
 
-  // Restore saved language
-  var savedLang = localStorage.getItem('lang');
+  function getLangFromUrl() {
+    var params = new URLSearchParams(location.search);
+    return params.get('lang');
+  }
+
+  function updateUrl(lang) {
+    var url = new URL(location);
+    if (lang === 'ru') {
+      url.searchParams.delete('lang');
+    } else {
+      url.searchParams.set('lang', lang);
+    }
+    history.replaceState(null, '', url);
+  }
+
+  // Restore language: URL > localStorage > default ru
+  var savedLang = getLangFromUrl() || localStorage.getItem('lang');
   if (savedLang === 'en') {
     setLang('en');
   }
@@ -544,4 +561,4 @@
 </script>
 
 </body>
-</html> 
+</html>
